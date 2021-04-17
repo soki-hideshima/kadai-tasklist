@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_122819) do
+ActiveRecord::Schema.define(version: 2021_04_15_203312) do
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2021_04_08_122819) do
     t.string "status"
     t.bigint "name_id"
     t.bigint "user_id"
+    t.bigint "email_id"
+    t.index ["email_id"], name: "index_tasks_on_email_id"
     t.index ["name_id"], name: "index_tasks_on_name_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
