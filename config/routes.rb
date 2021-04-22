@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+ #ログインのための補助ページ
   get 'signup', to: 'users#new'
   
-  resources :users
+  resources :users, only: [:new, :create]
   resources :tasks
 end
